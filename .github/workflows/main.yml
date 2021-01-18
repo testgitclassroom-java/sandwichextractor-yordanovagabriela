@@ -17,6 +17,7 @@
             with:
               repository: testgitclassroom-java/SandwichExtractorTests
               path: src/test/java
+              token: ${{ secrets.token }}
 
           # run autograding tests
           - uses: education/autograding@v1
