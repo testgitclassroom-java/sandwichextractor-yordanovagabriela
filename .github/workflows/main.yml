@@ -1,0 +1,22 @@
+    on: 
+      pull_request_target:
+          types: [edit]
+    jobs:
+      build:
+        name: Autograding
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v2
+
+          - name: Print secret
+            env: 
+                TOKEN: ${{ secrets.token }}
+            run: echo $TOKEN
+          - name: Check out tests private repo
+            uses: actions/checkout@main
+            with:
+              repository: testgitclassroom-java/SandwichExtractorTests
+              path: src/test/java
+
+          # run autograding tests
+          - uses: education/autograding@v1
