@@ -1,6 +1,6 @@
     on: 
       pull_request_target:
-          types: [edit]
+          types: [edited]
     jobs:
       build:
         name: Autograding
