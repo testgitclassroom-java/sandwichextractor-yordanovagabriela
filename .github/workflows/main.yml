@@ -1,6 +1,6 @@
     on: 
       pull_request_target:
-          types: [edit]
+        types: [assigned, opened, synchronize, reopened]
     jobs:
       build:
         name: Autograding
@@ -17,6 +17,7 @@
             with:
               repository: testgitclassroom-java/SandwichExtractorTests
               path: src/test/java
+              token: ${{ secrets.token }}
 
           # run autograding tests
           - uses: education/autograding@v1
